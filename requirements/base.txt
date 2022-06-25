@@ -19,3 +19,7 @@ psycopg2==2.9.3
 
 # Requests
 requests==2.27.1
+
+# Websockets
+channels==3.0.5
+channels_redis==3.4.0
