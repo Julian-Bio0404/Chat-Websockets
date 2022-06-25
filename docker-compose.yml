@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+
+  postgres:
+    image: postgres
+    restart: always
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+
+  redis:
+    image: redis:alpine
+    restart: always
+    ports:
+      - 6379:6379
+
+  django:
+    build:
+      context: .
+      dockerfile: ./compose/local/django/Dockerfile
+    image: chat_django
+    volumes:
+      - .:/app
+    env_file:
+      - ./.env
+    deploy:
+      resources:
+        limits:
+          memory: 350M
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    command: /start
+    container_name: django

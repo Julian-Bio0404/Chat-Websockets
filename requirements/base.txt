@@ -1,0 +1,21 @@
+Pillow==9.0.1
+pytz==2021.3
+python-decouple==3.6
+
+# Django
+Django==4.0.5
+
+# Django REST Framework
+djangorestframework==3.13.1
+
+# Auth
+PyJWT==2.3.0
+
+# Enviroment
+django-environ==0.9.0
+
+# Postgres
+psycopg2==2.9.3
+
+# Requests
+requests==2.27.1
